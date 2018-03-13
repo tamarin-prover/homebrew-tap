@@ -5,5 +5,5 @@ This is a [Homebrew](https://brew.sh/) [tap](https://docs.brew.sh/Taps) for the 
 To install:
 
 ```
-brew install katrielalex/homebrew/tamarin-prover
+brew install katrielalex/tap/tamarin-prover
 ```
