@@ -12,6 +12,12 @@ class TamarinProver < Formula
   depends_on "graphviz"
   depends_on :macos => :mountain_lion
 
+  bottle do
+    root_url "https://dl.bintray.com/katriel/tamarin-prover"
+    cellar :any_skip_relocation
+    sha256 "c530417ab4ce6901fc08dd198793ddd281bbad7892c61fe6d82da71e21e88f12" => :high_sierra
+  end
+
   # doi "10.1109/CSF.2012.25"
   # tag "security"
 
