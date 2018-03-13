@@ -23,8 +23,6 @@ class TamarinProver < Formula
 
   def install
     # Let `stack` handle its own parallelization
-    # Deparallelization prevents "install: mkdir ... ghc-7.10.3/lib: File exists"
-    ENV.deparallelize
     jobs = ENV.make_jobs
     system "stack", "-j#{jobs}", "setup"
     args = []
