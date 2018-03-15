@@ -9,10 +9,6 @@ class Libbuddy < Formula
     cellar :any
     rebuild 1
     sha256 "5c150e653aeb36ce34381f24137c963419a169e665cdfa5e6f15495923beb694" => :high_sierra
-  end
-
-  bottle do
-    cellar :any
     sha256 "5dc396c196d46646102d10c5d3ff32d8b37249cac78af2595417e6474494453b" => :el_capitan
     sha256 "451c34f54e575578a3b3cfaad5e5a860f012317ff32053097c6132bba60a7da9" => :yosemite
     sha256 "f4a66068fc8b53b557e3c9f6be57574c1711aedd91e1f18e2b6c5111b62fdbe7" => :mavericks

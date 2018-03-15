@@ -10,10 +10,6 @@ class Maude < Formula
     cellar :any
     rebuild 1
     sha256 "747d2709c2e8db7b5aaca5b0ca8e200a596052606a31bb970b3823524a98e2b5" => :high_sierra
-  end
-
-  bottle do
-    cellar :any
     sha256 "952d23e1f143bfb62e21fb4b0e1b440dcfc431cc7250f458c4c1ecf7234fea5e" => :sierra
     sha256 "042a617f84cacfdd0d8f441fcf1209fe6bef76483b0cf848bded5dc378f82bc6" => :el_capitan
     sha256 "8bb72b9a8f9097656ffb4f70f7b7addb2ba2a888134af1bd96b488340d25aadc" => :yosemite
