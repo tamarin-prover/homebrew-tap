@@ -25,6 +25,7 @@ class Maude < Formula
   depends_on "libsigsegv"
   depends_on "libtecla"
   depends_on "flex" unless OS.mac?
+  depends_on "bison" unless OS.mac?
 
   def install
     ENV.deparallelize
