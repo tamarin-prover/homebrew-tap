@@ -6,7 +6,7 @@ class Maude < Formula
   revision 1
 
   bottle do
-    root_url "https://dl.bintray.com/tamarin-prover-org/tamarin-prover"
+    root_url "https://dl.bintray.com/tamarin-prover-org/maude"
     cellar :any
     rebuild 1
     sha256 "747d2709c2e8db7b5aaca5b0ca8e200a596052606a31bb970b3823524a98e2b5" => :high_sierra
