@@ -7,16 +7,17 @@ class TamarinProver < Formula
 
   depends_on "haskell-stack" => :build
   depends_on "zlib" => :build unless OS.mac?
-  depends_on "maude"
-  depends_on "graphviz"
   depends_on "ocaml" => :build
+  depends_on "graphviz"
   depends_on :macos => :mountain_lion
+  depends_on "maude"
 
   bottle do
     root_url "https://dl.bintray.com/tamarin-prover-org/tamarin-prover"
     cellar :any_skip_relocation
     # Looking at docs might be able to use :sierra_or_later
-    sha256 "2fb42c3d5d10d93fa1c07fbec96258cc00433eb496dfe0430dc41b7f153204cf" => :high_sierra
+    sha256 "c4e2c37ee3823670e6fcff47e48722b0f9406585b6a059a40251b2cd214f7513" => :mojave
+    sha256 "da3bba52d6f0ff69b6d4a818044d02473ca494051272cd628b4418cb361af59e" => :high_sierra
     sha256 "1571c86decfb34621b20fe3a60bd675b62b34699c59d83ae30dc91bf47d2738c" => :x86_64_linux
   end
 
