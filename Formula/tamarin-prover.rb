@@ -1,8 +1,8 @@
 class TamarinProver < Formula
   desc "Automated security protocol verification tool"
   homepage "https://tamarin-prover.github.io/"
-  url "https://github.com/tamarin-prover/tamarin-prover/archive/1.4.0.tar.gz"
-  sha256 "e92ddcc9ddc9b115eb7605606acbc182feb3bb0012039d5c983d400cf0165f8d"
+  url "https://github.com/tamarin-prover/tamarin-prover/archive/1.4.1.tar.gz"
+  sha256 "d0e95d738060d44bcce698877cc56c34ec61de1ca73d50d5d8a7a35ade990400"
   head "https://github.com/tamarin-prover/tamarin-prover.git", :branch => "develop"
 
   depends_on "haskell-stack" => :build
@@ -16,9 +16,7 @@ class TamarinProver < Formula
     root_url "https://dl.bintray.com/tamarin-prover-org/tamarin-prover"
     cellar :any_skip_relocation
     # Looking at docs might be able to use :sierra_or_later
-    sha256 "c4e2c37ee3823670e6fcff47e48722b0f9406585b6a059a40251b2cd214f7513" => :mojave
-    sha256 "da3bba52d6f0ff69b6d4a818044d02473ca494051272cd628b4418cb361af59e" => :high_sierra
-    sha256 "1571c86decfb34621b20fe3a60bd675b62b34699c59d83ae30dc91bf47d2738c" => :x86_64_linux
+    sha256 "694ee78a3828a6f0f26902d49902abc8d46ad2877870a2bc07bfdeb156b9f509" => :high_sierra
   end
 
   # doi "10.1109/CSF.2012.25"
