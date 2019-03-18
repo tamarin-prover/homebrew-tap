@@ -18,7 +18,7 @@ class TamarinProver < Formula
     # Looking at docs might be able to use :sierra_or_later
     sha256 "694ee78a3828a6f0f26902d49902abc8d46ad2877870a2bc07bfdeb156b9f509" => :high_sierra
     sha256 "ff644b9cde0c9d789770dffe55e5204d3ae9678565da5a529aa758ea202c1d14" => :mojave
-    sha256 "6a50f0e78ed7cd185fcebdf8820ed710266b503e96f133b5cdcbad632c0f8278" => :x86_64_linux
+    sha256 "84e2ccd9671f446214a9c8f860030c70994da3b87e4bd68ee53314826b46f6ee" => :x86_64_linux
   end
 
   # doi "10.1109/CSF.2012.25"
