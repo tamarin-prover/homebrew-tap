@@ -7,7 +7,8 @@ class Libbuddy < Formula
   bottle do
     root_url "https://dl.bintray.com/tamarin-prover-org/tamarin-prover"
     cellar :any_skip_relocation
-    rebuild 2
+    rebuild 3
+    sha256 "be9577ed9a01c80b48f459a08c60e6a27813a5131e5a735855a41205dffc00a3" => :catalina
     sha256 "5c150e653aeb36ce34381f24137c963419a169e665cdfa5e6f15495923beb694" => :high_sierra
     sha256 "5dc396c196d46646102d10c5d3ff32d8b37249cac78af2595417e6474494453b" => :el_capitan
     sha256 "451c34f54e575578a3b3cfaad5e5a860f012317ff32053097c6132bba60a7da9" => :yosemite
