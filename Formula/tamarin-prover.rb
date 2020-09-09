@@ -1,8 +1,8 @@
 class TamarinProver < Formula
   desc "Automated security protocol verification tool"
   homepage "https://tamarin-prover.github.io/"
-  url "https://github.com/tamarin-prover/tamarin-prover/archive/1.4.1.tar.gz"
-  sha256 "d0e95d738060d44bcce698877cc56c34ec61de1ca73d50d5d8a7a35ade990400"
+  url "https://github.com/tamarin-prover/tamarin-prover/archive/1.6.0.tar.gz"
+  sha256 "b643fbcf5cd604fe2284e3de870140aac6d03b14651b61d792002e879aea6b45"
   head "https://github.com/tamarin-prover/tamarin-prover.git", :branch => "develop"
 
   depends_on "haskell-stack" => :build
