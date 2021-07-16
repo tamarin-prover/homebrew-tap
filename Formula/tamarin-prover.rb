@@ -1,25 +1,24 @@
 class TamarinProver < Formula
   desc "Automated security protocol verification tool"
   homepage "https://tamarin-prover.github.io/"
-  url "https://github.com/tamarin-prover/tamarin-prover/archive/1.4.1.tar.gz"
-  sha256 "d0e95d738060d44bcce698877cc56c34ec61de1ca73d50d5d8a7a35ade990400"
-  head "https://github.com/tamarin-prover/tamarin-prover.git", :branch => "develop"
+  url "https://github.com/tamarin-prover/tamarin-prover/archive/1.6.0.tar.gz"
+  sha256 "b643fbcf5cd604fe2284e3de870140aac6d03b14651b61d792002e879aea6b45"
+  head "https://github.com/tamarin-prover/tamarin-prover.git", branch: "develop"
+
+  bottle do
+    root_url "https://github.com/tamarin-prover/tamarin-prover/releases/download/1.6.0"
+    # Looking at docs might be able to use :sierra_or_later
+    sha256 cellar: :any_skip_relocation, big_sur:      "75f6fd3fd37c2428ecf6b28a49906ecb3dfad48bdebed857fd72d424dd2f47e7"
+    sha256 cellar: :any_skip_relocation, catalina:     "37af72ed0cb070682c278a7e0298c3a17f5938e3a86e38b31a56900e50798717"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c96a2ad6f0cb8eb29a51b1c33896732185cd770876fc3ccb16710f0889a96a9f"
+  end
 
   depends_on "haskell-stack" => :build
   depends_on "zlib" => :build unless OS.mac?
   depends_on "ocaml" => :build
   depends_on "graphviz"
-  depends_on :macos => :mountain_lion
+  depends_on macos: :yosemite
   depends_on "maude"
-
-  bottle do
-    root_url "https://dl.bintray.com/tamarin-prover-org/tamarin-prover"
-    cellar :any_skip_relocation
-    # Looking at docs might be able to use :sierra_or_later
-    sha256 "c4e2c37ee3823670e6fcff47e48722b0f9406585b6a059a40251b2cd214f7513" => :mojave
-    sha256 "da3bba52d6f0ff69b6d4a818044d02473ca494051272cd628b4418cb361af59e" => :high_sierra
-    sha256 "1571c86decfb34621b20fe3a60bd675b62b34699c59d83ae30dc91bf47d2738c" => :x86_64_linux
-  end
 
   # doi "10.1109/CSF.2012.25"
   # tag "security"
@@ -29,7 +28,9 @@ class TamarinProver < Formula
     jobs = ENV.make_jobs
     system "stack", "-j#{jobs}", "setup"
     args = []
-    args << "--extra-include-dirs=#{Formula["zlib"].include}" << "--extra-lib-dirs=#{Formula["zlib"].lib}" unless OS.mac?
+    unless OS.mac?
+      args << "--extra-include-dirs=#{Formula["zlib"].include}" << "--extra-lib-dirs=#{Formula["zlib"].lib}"
+    end
     system "stack", "-j#{jobs}", *args, "install", "--flag", "tamarin-prover:threaded"
 
     # `ocaml` building under linuxbrew needs to be single core.
