@@ -7,7 +7,7 @@ class Libbuddy < Formula
   bottle do
     root_url "https://raw.githubusercontent.com/tamarin-prover/binaries/HEAD/dependencies"
     rebuild 3
-    sha256 cellar: :any_skip_relocation, catalina:     "be9577ed9a01c80b48f459a08c60e6a27813a5131e5a735855a41205dffc00a3"
+    sha256 cellar: :any_skip_relocation, catalina:     "3cab96ab2fe4506669abd447bf5185e789ab0ea2a40536ff61b0b734f167f5a0"
     sha256 cellar: :any_skip_relocation, high_sierra:  "5c150e653aeb36ce34381f24137c963419a169e665cdfa5e6f15495923beb694"
     sha256 cellar: :any_skip_relocation, el_capitan:   "5dc396c196d46646102d10c5d3ff32d8b37249cac78af2595417e6474494453b"
     sha256 cellar: :any_skip_relocation, yosemite:     "451c34f54e575578a3b3cfaad5e5a860f012317ff32053097c6132bba60a7da9"
