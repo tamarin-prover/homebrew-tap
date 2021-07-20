@@ -17,7 +17,7 @@ class Maude < Formula
   end
 
   depends_on "gmp"
-  depends_on "tamarin-prover/tap/libbuddy"
+  depends_on "libbuddy"
   depends_on "libsigsegv"
   depends_on "libtecla"
   depends_on "flex" unless OS.mac?

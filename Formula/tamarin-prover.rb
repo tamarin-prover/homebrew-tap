@@ -18,8 +18,7 @@ class TamarinProver < Formula
   depends_on "ocaml" => :build
   depends_on "graphviz"
   depends_on macos: :yosemite
-  depends_on "tamarin-prover/tap/maude"
-  depends_on "tamarin-prover/tap/libbuddy"
+  depends_on "maude"
 
   # doi "10.1109/CSF.2012.25"
   # tag "security"
