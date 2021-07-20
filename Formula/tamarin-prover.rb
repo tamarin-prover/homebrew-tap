@@ -19,6 +19,7 @@ class TamarinProver < Formula
   depends_on "graphviz"
   depends_on macos: :yosemite
   depends_on "tamarin-prover/tap/maude"
+  depends_on "tamarin-prover/tap/libbuddy"
 
   # doi "10.1109/CSF.2012.25"
   # tag "security"
