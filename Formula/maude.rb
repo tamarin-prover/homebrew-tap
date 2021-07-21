@@ -7,6 +7,7 @@ class Maude < Formula
 
   bottle do
     root_url "https://raw.githubusercontent.com/tamarin-prover/binaries/HEAD/dependencies"
+    sha256 cellar: :any, catalina:     "92c92b1d2e4532f35311b8a53f3ef73760823625e656c3dce42b2520ab3de14d"
     sha256 cellar: :any, mojave:       "120e8e9c8a83bfa0787b2e0b8f3ae798c18efd5db99e55a6a6ed3f37b56b820b"
     sha256 cellar: :any, high_sierra:  "747d2709c2e8db7b5aaca5b0ca8e200a596052606a31bb970b3823524a98e2b5"
     sha256 cellar: :any, sierra:       "952d23e1f143bfb62e21fb4b0e1b440dcfc431cc7250f458c4c1ecf7234fea5e"
