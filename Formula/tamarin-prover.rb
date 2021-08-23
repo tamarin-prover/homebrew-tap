@@ -9,7 +9,7 @@ class TamarinProver < Formula
     root_url "https://github.com/tamarin-prover/tamarin-prover/releases/download/1.6.1"
     # Looking at docs might be able to use :sierra_or_later
     sha256 cellar: :any_skip_relocation, big_sur:      "75f6fd3fd37c2428ecf6b28a49906ecb3dfad48bdebed857fd72d424dd2f47e7"
-    sha256 cellar: :any_skip_relocation, catalina:     "37af72ed0cb070682c278a7e0298c3a17f5938e3a86e38b31a56900e50798717"
+    sha256 cellar: :any_skip_relocation, catalina:     "b8a142ad4961d0beb06c9c4912baacca6deb7870016a22183e40dc259e60d500"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "c8fb1f445c9973a62376dd16ff711e019a00e0df3fb71d2b9afefa26fecc8ffe"
   end
 
