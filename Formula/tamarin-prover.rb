@@ -1,12 +1,12 @@
 class TamarinProver < Formula
   desc "Automated security protocol verification tool"
   homepage "https://tamarin-prover.github.io/"
-  url "https://github.com/tamarin-prover/tamarin-prover/archive/1.6.0.tar.gz"
-  sha256 "b643fbcf5cd604fe2284e3de870140aac6d03b14651b61d792002e879aea6b45"
-  head "https://github.com/tamarin-prover/tamarin-prover.git", branch: "develop"
+  url "https://github.com/tamarin-prover/tamarin-prover/archive/1.6.1.tar.gz"
+  sha256 "2405a94d40c59030409889af1e8490617aefdd8b3cdc1bfb55a0f75b7e590d77"
+  head "https://github.com/tamarin-prover/tamarin-prover.git", branch: "master"
 
   bottle do
-    root_url "https://github.com/tamarin-prover/tamarin-prover/releases/download/1.6.0"
+    root_url "https://github.com/tamarin-prover/tamarin-prover/releases/download/1.6.1"
     # Looking at docs might be able to use :sierra_or_later
     sha256 cellar: :any_skip_relocation, big_sur:      "75f6fd3fd37c2428ecf6b28a49906ecb3dfad48bdebed857fd72d424dd2f47e7"
     sha256 cellar: :any_skip_relocation, catalina:     "37af72ed0cb070682c278a7e0298c3a17f5938e3a86e38b31a56900e50798717"
