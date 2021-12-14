@@ -13,10 +13,13 @@ class Libbuddy < Formula
   end
 
   def install
+    if Hardware::CPU.arm? && OS.mac?
+      system "echo 'echo arm-apple-darwin' > tools/config.sub"
+    end
     system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+      "--disable-dependency-tracking",
+      "--disable-silent-rules",
+      "--prefix=#{prefix}"
     system "make", "install"
   end
 

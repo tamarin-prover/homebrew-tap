@@ -25,6 +25,9 @@ class Maude < Formula
   depends_on "bison" unless OS.mac?
 
   def install
+    if Hardware::CPU.arm? && OS.mac?
+      system "sed -i '' 's/finite\(/isfinite(/g' src/Utility/macros.cc src/BuiltIn/floatOpSymbol.cc src/BuiltIn/floatSymbol.cc "
+    end
     ENV.deparallelize
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
