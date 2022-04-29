@@ -10,6 +10,7 @@ class TamarinProver < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "a886014d7c2345bc2f2ea1836dd9bf1199435fcec54963f8e07e80e13fe857c6"
     sha256 cellar: :any_skip_relocation, catalina:     "b8a142ad4961d0beb06c9c4912baacca6deb7870016a22183e40dc259e60d500"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "c8fb1f445c9973a62376dd16ff711e019a00e0df3fb71d2b9afefa26fecc8ffe"
+    sha256 cellar: :any, arm64_monterey: "34269ddaada7f142817c4aeb38dcc223b58ff42ab719d7c0447fd0dc8da9dbd2"
   end
 
   depends_on "haskell-stack" => :build
@@ -27,6 +28,10 @@ class TamarinProver < Formula
     jobs = ENV.make_jobs
     system "stack", "-j#{jobs}", "setup"
     args = []
+    #Temporary fix for GHC 9.0.2 issue, see https://gitlab.haskell.org/ghc/ghc/-/issues/20592
+    if Hardware::CPU.arm? && OS.mac?
+      ENV["C_INCLUDE_PATH"] = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/ffi"
+    end
     unless OS.mac?
       args << "--extra-include-dirs=#{Formula["zlib"].include}" << "--extra-lib-dirs=#{Formula["zlib"].lib}"
     end
