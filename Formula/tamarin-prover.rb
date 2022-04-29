@@ -2,7 +2,7 @@ class TamarinProver < Formula
   desc "Automated security protocol verification tool"
   homepage "https://tamarin-prover.github.io/"
   url "https://github.com/tamarin-prover/tamarin-prover/archive/1.6.1.tar.gz"
-  sha256 "d415a6076d1d05db92da821513b3883cefae00aefce323d768425bf04a5a582a"
+  sha256 "2405a94d40c59030409889af1e8490617aefdd8b3cdc1bfb55a0f75b7e590d77"
   head "https://github.com/tamarin-prover/tamarin-prover.git", branch: "master"
 
   bottle do
