@@ -10,6 +10,7 @@ class Libbuddy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "2d2c92c55832c9f6ba160cc9154542779a63ab111bb8bc668f295e776dc1ab9a"
     sha256 cellar: :any_skip_relocation, catalina:     "3cab96ab2fe4506669abd447bf5185e789ab0ea2a40536ff61b0b734f167f5a0"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0807d5706dc37213dbc466b06819fc1b93d710c3543b92eec3c07e7c4fc317d5"
+    sha256 cellar: :any, arm64_monterey: "a1d72f509f29a606e8ed0ca3fa0ecbf39fcbfba0ec2375a101e23ab79f2c5162"
   end
 
   def install
