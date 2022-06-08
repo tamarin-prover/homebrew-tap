@@ -17,7 +17,6 @@ class TamarinProver < Formula
   depends_on "zlib" => :build unless OS.mac?
   depends_on "ocaml" => :build
   depends_on "graphviz"
-  depends_on macos: :yosemite
   depends_on "maude"
 
   # doi "10.1109/CSF.2012.25"
