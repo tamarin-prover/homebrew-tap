@@ -9,7 +9,7 @@ class TamarinProver < Formula
     root_url "https://github.com/tamarin-prover/tamarin-prover/releases/download/1.8.0"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "dfc65b2f87d237048031d9e96824254c5cd26539e83c5690fca30680993b3793"
     sha256 cellar: :any_skip_relocation, big_sur: "5648b96066e5a217f435778fb78cc5d426efd75897b60f5d1f1686d393225222"
-    #sha256 cellar: :any,                 arm64_monterey: "34269ddaada7f142817c4aeb38dcc223b58ff42ab719d7c0447fd0dc8da9dbd2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f02e73eb3e966a8546455b143880727237ee45e8287577f095771c2f13f9b0df"
   end
 
   depends_on "haskell-stack" => :build
