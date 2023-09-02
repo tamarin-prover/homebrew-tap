@@ -10,6 +10,7 @@ class TamarinProver < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "dfc65b2f87d237048031d9e96824254c5cd26539e83c5690fca30680993b3793"
     sha256 cellar: :any_skip_relocation, big_sur: "5648b96066e5a217f435778fb78cc5d426efd75897b60f5d1f1686d393225222"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f02e73eb3e966a8546455b143880727237ee45e8287577f095771c2f13f9b0df"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "449c36cff1f1b6ec80463258dcf3c4cce1a195ade84a7b1483ab2ab04c747a1f"
   end
 
   depends_on "haskell-stack" => :build
