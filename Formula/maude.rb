@@ -1,21 +1,14 @@
 class Maude < Formula
   desc "Reflective language for equational and rewriting logic specification"
   homepage "http://maude.cs.illinois.edu"
-  url "http://maude.cs.illinois.edu/w/images/d/d8/Maude-2.7.1.tar.gz"
-  sha256 "b1887c7fa75e85a1526467727242f77b5ec7cd6a5dfa4ceb686b6f545bb1534b"
+  url "https://github.com/maude-lang/Maude/archive/refs/tags/Maude3.5.1.tar.gz" 
+  sha256 "3dce4f7b42fae2430a08ab2663303d1be244792bb3cc365c58cdb2f3f7bff170" 
   revision 1
 
   bottle do
     root_url "https://raw.githubusercontent.com/tamarin-prover/binaries/HEAD/dependencies"
-    sha256 cellar: :any, catalina:     "92c92b1d2e4532f35311b8a53f3ef73760823625e656c3dce42b2520ab3de14d"
-    sha256 cellar: :any, big_sur:      "85df799f6d20b0425a13c22e22cb6da1d054251f595f429aaa026d1dd50b0a32"
-    sha256 cellar: :any, mojave:       "120e8e9c8a83bfa0787b2e0b8f3ae798c18efd5db99e55a6a6ed3f37b56b820b"
-    sha256 cellar: :any, high_sierra:  "747d2709c2e8db7b5aaca5b0ca8e200a596052606a31bb970b3823524a98e2b5"
-    sha256 cellar: :any, sierra:       "952d23e1f143bfb62e21fb4b0e1b440dcfc431cc7250f458c4c1ecf7234fea5e"
-    sha256 cellar: :any, el_capitan:   "042a617f84cacfdd0d8f441fcf1209fe6bef76483b0cf848bded5dc378f82bc6"
-    sha256 cellar: :any, yosemite:     "8bb72b9a8f9097656ffb4f70f7b7addb2ba2a888134af1bd96b488340d25aadc"
-    sha256 cellar: :any, x86_64_linux: "e341985f51abe73a4516690daf2b5bf384286b2f48414b79108cc9933187e014"
-    sha256 cellar: :any, arm64_monterey: "0c07a7d0a31cd58e329876e605437f3ef7616d1457feda6772fa2d345a7945a0"
+    sha256 cellar: :any, arm64_tahoe: "711887bd8107ad0f476d29e67f7760f6bea0724281799a13263c2428cd5f306c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3a941ae6e9eaa567827959dcac44129166c87b020d238c742c32467980e99936"
   end
 
   depends_on "gmp"
@@ -23,18 +16,19 @@ class Maude < Formula
   depends_on "libsigsegv"
   depends_on "libtecla"
   depends_on "flex" unless OS.mac?
-  depends_on "bison" unless OS.mac?
+  depends_on "bison" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
-    if Hardware::CPU.arm? && OS.mac?
-      system "sed -i '' 's/finite\(/isfinite(/g' src/Utility/macros.cc src/BuiltIn/floatOpSymbol.cc src/BuiltIn/floatSymbol.cc "
-    end
     ENV.deparallelize
+    system "autoreconf", "-vfi"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{libexec}",
-                          "--without-cvc4"
+                          "--without-cvc4",
+                          "--without-yices2"
     system "make", "install"
     (bin/"maude").write_env_script libexec/"bin/maude", MAUDE_LIB: libexec/"share"
   end
