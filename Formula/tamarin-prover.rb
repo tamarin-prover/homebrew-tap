@@ -1,23 +1,21 @@
 class TamarinProver < Formula
   desc "Automated security protocol verification tool"
-  homepage "https://tamarin-prover.github.io/"
-  url "https://github.com/tamarin-prover/tamarin-prover/archive/1.6.0.tar.gz"
-  sha256 "b643fbcf5cd604fe2284e3de870140aac6d03b14651b61d792002e879aea6b45"
-  head "https://github.com/tamarin-prover/tamarin-prover.git", branch: "develop"
+  homepage "https://tamarin-prover.com/"
+  url "https://github.com/tamarin-prover/tamarin-prover/archive/refs/tags/1.10.0.tar.gz"
+  sha256 "d747e4922aac682f7afce92a63fd7f556e20b1678b1877f3a6281ae899f79767"
+  head "https://github.com/tamarin-prover/tamarin-prover.git", branch: "master"
 
   bottle do
-    root_url "https://github.com/tamarin-prover/tamarin-prover/releases/download/1.6.0"
-    # Looking at docs might be able to use :sierra_or_later
-    sha256 cellar: :any_skip_relocation, big_sur:      "75f6fd3fd37c2428ecf6b28a49906ecb3dfad48bdebed857fd72d424dd2f47e7"
-    sha256 cellar: :any_skip_relocation, catalina:     "37af72ed0cb070682c278a7e0298c3a17f5938e3a86e38b31a56900e50798717"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c96a2ad6f0cb8eb29a51b1c33896732185cd770876fc3ccb16710f0889a96a9f"
+    root_url "https://github.com/tamarin-prover/tamarin-prover/releases/download/1.10.0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "68547fe682b5bc86c8549c1be8585814f2d503193ea9d297f584181d64070385"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "368fa9143252b9d2fcf3151e9a20a24164632ac87407aebbc6afd5ce5708eabd"
   end
+
 
   depends_on "haskell-stack" => :build
   depends_on "zlib" => :build unless OS.mac?
   depends_on "ocaml" => :build
   depends_on "graphviz"
-  depends_on macos: :yosemite
   depends_on "maude"
 
   # doi "10.1109/CSF.2012.25"
@@ -28,14 +26,19 @@ class TamarinProver < Formula
     jobs = ENV.make_jobs
     system "stack", "-j#{jobs}", "setup"
     args = []
+    # Temporary fix for GHC 9.0.2 issue, see https://gitlab.haskell.org/ghc/ghc/-/issues/20592
+    #if Hardware::CPU.arm? && OS.mac?
+    #  ENV["C_INCLUDE_PATH"] =
+    #    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/ffi"
+    #end
     unless OS.mac?
       args << "--extra-include-dirs=#{Formula["zlib"].include}" << "--extra-lib-dirs=#{Formula["zlib"].lib}"
     end
     system "stack", "-j#{jobs}", *args, "install", "--flag", "tamarin-prover:threaded"
 
     # `ocaml` building under linuxbrew needs to be single core.
-    ENV.deparallelize
-    system "make", "sapic"
+    # ENV.deparallelize
+    # system "make", "sapic"
 
     bin.install Dir[".brew_home/.local/bin/*"]
   end

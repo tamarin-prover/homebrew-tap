@@ -15,6 +15,7 @@ class Maude < Formula
     sha256 cellar: :any, el_capitan:   "042a617f84cacfdd0d8f441fcf1209fe6bef76483b0cf848bded5dc378f82bc6"
     sha256 cellar: :any, yosemite:     "8bb72b9a8f9097656ffb4f70f7b7addb2ba2a888134af1bd96b488340d25aadc"
     sha256 cellar: :any, x86_64_linux: "e341985f51abe73a4516690daf2b5bf384286b2f48414b79108cc9933187e014"
+    sha256 cellar: :any, arm64_monterey: "0c07a7d0a31cd58e329876e605437f3ef7616d1457feda6772fa2d345a7945a0"
   end
 
   depends_on "gmp"
@@ -25,6 +26,9 @@ class Maude < Formula
   depends_on "bison" unless OS.mac?
 
   def install
+    if Hardware::CPU.arm? && OS.mac?
+      system "sed -i '' 's/finite\(/isfinite(/g' src/Utility/macros.cc src/BuiltIn/floatOpSymbol.cc src/BuiltIn/floatSymbol.cc "
+    end
     ENV.deparallelize
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
