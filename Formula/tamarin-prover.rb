@@ -1,14 +1,14 @@
 class TamarinProver < Formula
   desc "Automated security protocol verification tool"
   homepage "https://tamarin-prover.com/"
-  url "https://github.com/tamarin-prover/tamarin-prover/archive/refs/tags/1.10.0.tar.gz"
-  sha256 "d747e4922aac682f7afce92a63fd7f556e20b1678b1877f3a6281ae899f79767"
+  url "https://github.com/tamarin-prover/tamarin-prover/archive/refs/tags/1.12.0.tar.gz"
+  sha256 "35f0262e770db3632fcb297deb6ecc2d7c724c693fecfe97892e8224fa161956"
   head "https://github.com/tamarin-prover/tamarin-prover.git", branch: "master"
 
   bottle do
-    root_url "https://github.com/tamarin-prover/tamarin-prover/releases/download/1.10.0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "68547fe682b5bc86c8549c1be8585814f2d503193ea9d297f584181d64070385"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "368fa9143252b9d2fcf3151e9a20a24164632ac87407aebbc6afd5ce5708eabd"
+    root_url "https://github.com/tamarin-prover/tamarin-prover/releases/download/1.12.0"
+    # sha256 cellar: :any_skip_relocation, arm64_sonoma: "68547fe682b5bc86c8549c1be8585814f2d503193ea9d297f584181d64070385"
+    # sha256 cellar: :any_skip_relocation, x86_64_linux: "368fa9143252b9d2fcf3151e9a20a24164632ac87407aebbc6afd5ce5708eabd"
   end
 
 
