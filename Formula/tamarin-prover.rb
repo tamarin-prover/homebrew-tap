@@ -15,24 +15,22 @@ class TamarinProver < Formula
   depends_on "ocaml" => :build
   depends_on "graphviz"
   depends_on "maude"
+  depends_on "npm" => :build
 
   # doi "10.1109/CSF.2012.25"
   # tag "security"
 
   def install
-    # Let `stack` handle its own parallelization
-    jobs = ENV.make_jobs
-    system "stack", "-j#{jobs}", "setup"
-    args = []
-    # Temporary fix for GHC 9.0.2 issue, see https://gitlab.haskell.org/ghc/ghc/-/issues/20592
-    #if Hardware::CPU.arm? && OS.mac?
-    #  ENV["C_INCLUDE_PATH"] =
-    #    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/ffi"
-    #end
-    unless OS.mac?
-      args << "--extra-include-dirs=#{Formula["zlib"].include}" << "--extra-lib-dirs=#{Formula["zlib"].lib}"
-    end
-    system "stack", "-j#{jobs}", *args, "install", "--flag", "tamarin-prover:threaded"
+    # just call make
+    system "make"
+    # # Let `stack` handle its own parallelization
+    # jobs = ENV.make_jobs
+    # system "stack", "-j#{jobs}", "setup"
+    # args = []
+    # unless OS.mac?
+    #   args << "--extra-include-dirs=#{Formula["zlib"].include}" << "--extra-lib-dirs=#{Formula["zlib"].lib}"
+    # end
+    # system "stack", "-j#{jobs}", *args, "install", "--flag", "tamarin-prover:threaded"
 
     # `ocaml` building under linuxbrew needs to be single core.
     # ENV.deparallelize
