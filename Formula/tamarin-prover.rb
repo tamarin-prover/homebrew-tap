@@ -11,7 +11,6 @@ class TamarinProver < Formula
   end
 
   depends_on "haskell-stack" => :build
-  depends_on "zlib" => :build unless OS.mac?
   depends_on "npm" => :build
   depends_on "graphviz"
   depends_on "maude"
