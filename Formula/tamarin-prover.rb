@@ -7,7 +7,7 @@ class TamarinProver < Formula
 
   bottle do
     root_url "https://github.com/tamarin-prover/tamarin-prover/releases/download/1.12.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "6ca9238e5ed0ed1816797c4876b2e7c21d90d4133d69e8e474749c8125b16632"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "c4174f9f850d31243473d1bc8c04eb20117b28ec5a66276078768b58ef6ee9fd"
   end
 
   depends_on "haskell-stack" => :build
