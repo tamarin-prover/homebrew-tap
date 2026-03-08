@@ -15,6 +15,7 @@ class TamarinProver < Formula
   depends_on "npm" => :build
   depends_on "graphviz"
   depends_on "maude"
+  depends_on "npm" => :build
 
   # doi "10.1109/CSF.2012.25"
   # tag "security"
