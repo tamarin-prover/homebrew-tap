@@ -22,19 +22,6 @@ class TamarinProver < Formula
   def install
     # just call make
     system "make"
-    # # Let `stack` handle its own parallelization
-    # jobs = ENV.make_jobs
-    # system "stack", "-j#{jobs}", "setup"
-    # args = []
-    # unless OS.mac?
-    #   args << "--extra-include-dirs=#{Formula["zlib"].include}" << "--extra-lib-dirs=#{Formula["zlib"].lib}"
-    # end
-    # system "stack", "-j#{jobs}", *args, "install", "--flag", "tamarin-prover:threaded"
-
-    # `ocaml` building under linuxbrew needs to be single core.
-    # ENV.deparallelize
-    # system "make", "sapic"
-
     bin.install Dir[".brew_home/.local/bin/*"]
   end
 
