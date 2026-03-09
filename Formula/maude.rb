@@ -9,6 +9,7 @@ class Maude < Formula
     root_url "https://raw.githubusercontent.com/tamarin-prover/binaries/HEAD/dependencies"
     sha256 cellar: :any, arm64_tahoe: "711887bd8107ad0f476d29e67f7760f6bea0724281799a13263c2428cd5f306c"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "3a941ae6e9eaa567827959dcac44129166c87b020d238c742c32467980e99936"
+    sha256 cellar: :any_skip_relocation, arm64_linux: "e9624c23c32304797a3530341cb8a7473222fb3cba621f2525c498e89a365f7c"
   end
 
   depends_on "gmp"
