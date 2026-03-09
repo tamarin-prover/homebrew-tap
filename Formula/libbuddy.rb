@@ -17,10 +17,18 @@ class Libbuddy < Formula
     if Hardware::CPU.arm? && OS.mac?
       system "echo 'echo arm-apple-darwin' > tools/config.sub"
     end
-    system "./configure", "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}"
+    if Hardware::CPU.arm? && OS.linux?
+      system "./configure", "--build=aarch64-unknown-linux-gnu",
+        "--disable-debug",
+        "--disable-dependency-tracking",
+        "--disable-silent-rules",
+        "--prefix=#{prefix}"
+    else
+        system "./configure", "--disable-debug",
+          "--disable-dependency-tracking",
+          "--disable-silent-rules",
+          "--prefix=#{prefix}"
+    end
     system "make", "install"
   end
 
