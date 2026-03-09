@@ -25,7 +25,7 @@ New installs will then use this bottle.
 To build a new bottle (perhaps for a new operating system or Maude/libbuddy release):
 
 1. `brew install --build-bottle tamarin-prover/tap/maude` or `brew install --build-bottle tamarin-prover/tap/libbuddy`
-2. `brew bottle maude --keep-old --root-url=https://raw.githubusercontent.com/tamarin-prover/binaries/HEAD/dependencies` or `brew bottle lib buddy --keep-old --root-url=https://raw.githubusercontent.com/tamarin-prover/binaries/HEAD/dependencies`, and note the output it gives you with the bottle SHA and tag,
+2. `brew bottle tamarin-prover/tap/maude --keep-old --root-url=https://raw.githubusercontent.com/tamarin-prover/binaries/HEAD/dependencies` or `brew bottle tamarin-prover/tap/libbuddy --keep-old --root-url=https://raw.githubusercontent.com/tamarin-prover/binaries/HEAD/dependencies`, and note the output it gives you with the bottle SHA and tag,
 3. Rename the bottle to use a single hyphen. Homebrew should give you the relevant output on the command line to update in the `maude.rb` or `libbuddy.rb` formula. If not, on Linux, run sha256sum on the renamed file, and use the result to replace the bottle hash from previous item. On macOS, use `shasum -a 256 <filename>`.
 4. Submit a separate pull request for https://github.com/tamarin-prover/binaries/ containing the new binaries for maude or lib buddy.
 5. Update the `maude.rb` or `libbuddy.rb` formula with the bottle SHA and tag, in the bottle section.
